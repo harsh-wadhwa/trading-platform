@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\Harsh Wadhwa\Documents\GitHub\trading-platform\VENV
+set VIRTUAL_ENV=C:\Users\Harsh Wadhwa\Desktop\SEM 6\Capstone I\PROJECT\django-ecommerce-master\VENV
 
 if not defined PROMPT set PROMPT=$P$G
 
