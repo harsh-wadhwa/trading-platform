@@ -4,7 +4,7 @@ This project was created by AlphaSigmaLabs for submission under Capstone Project
 
 # Django E-commerce
 
-This is a very simple e-commerce website built with Django.
+This is a very simple e-commerce website built with Django. Used HTML, CSS, JS
 
 
 
