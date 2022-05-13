@@ -13,7 +13,7 @@ from .views import (
 )
 
 app_name = 'core'
-
+// Urls Mapping
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('checkout/', CheckoutView.as_view(), name='checkout'),
