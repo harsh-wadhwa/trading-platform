@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Item, OrderItem, Order, Payment, Coupon, Refund, Address, UserProfile
 
-
+#Function to accept refund
 def make_refund_accepted(modeladmin, request, queryset):
     queryset.update(refund_requested=False, refund_granted=True)
 
