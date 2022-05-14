@@ -23,7 +23,7 @@ ADDRESS_CHOICES = (
     ('S', 'Shipping'),
 )
 
-
+#User Models
 class UserProfile(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -33,7 +33,7 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-
+#Items Model
 class Item(models.Model):
     title = models.CharField(max_length=100)
     price = models.FloatField()
@@ -62,7 +62,7 @@ class Item(models.Model):
             'slug': self.slug
         })
 
-
+#OrderItem Model
 class OrderItem(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -87,7 +87,7 @@ class OrderItem(models.Model):
             return self.get_total_discount_item_price()
         return self.get_total_item_price()
 
-
+#Order Model
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -131,7 +131,7 @@ class Order(models.Model):
             total -= self.coupon.amount
         return total
 
-
+#address model
 class Address(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -148,7 +148,7 @@ class Address(models.Model):
     class Meta:
         verbose_name_plural = 'Addresses'
 
-
+#Payment Model
 class Payment(models.Model):
     stripe_charge_id = models.CharField(max_length=50)
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -159,7 +159,7 @@ class Payment(models.Model):
     def __str__(self):
         return self.user.username
 
-
+#coupon model
 class Coupon(models.Model):
     code = models.CharField(max_length=15)
     amount = models.FloatField()
@@ -167,7 +167,7 @@ class Coupon(models.Model):
     def __str__(self):
         return self.code
 
-
+#Refund model
 class Refund(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     reason = models.TextField()

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from .models import Item, OrderItem, Order, Payment, Coupon, Refund, Address, UserProfile
 
-
+#Function to accept refund
 def make_refund_accepted(modeladmin, request, queryset):
     queryset.update(refund_requested=False, refund_granted=True)
 
@@ -40,7 +40,6 @@ class OrderAdmin(admin.ModelAdmin):
     ]
     actions = [make_refund_accepted]
 
-
 class AddressAdmin(admin.ModelAdmin):
     list_display = [
         'user',
@@ -53,6 +52,7 @@ class AddressAdmin(admin.ModelAdmin):
     ]
     list_filter = ['default', 'address_type', 'country']
     search_fields = ['user', 'street_address', 'apartment_address', 'zip']
+
 
 
 admin.site.register(Item)
