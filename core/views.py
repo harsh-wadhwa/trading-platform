@@ -132,7 +132,8 @@ class CheckoutView(View):
                     'use_default_billing')
                 same_billing_address = form.cleaned_data.get(
                     'same_billing_address')
-
+#billing address
+                
                 if same_billing_address:
                     billing_address = shipping_address
                     billing_address.pk = None
